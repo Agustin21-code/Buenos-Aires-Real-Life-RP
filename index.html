@@ -1,5 +1,107 @@
-<section id="register">
-    <div class="container">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos Aires Real Life RP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2f80ed;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .btn-primary {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #ff5733;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #2f80ed;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 300px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            background-color: #2f80ed;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1f6bb6;
+        }
+        footer {
+            background-color: #2f80ed;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Buenos Aires Real Life RP</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre el Servidor</a></li>
+                <li><a href="#features">Características</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#register" class="btn">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="register">
         <h2>Registrarse</h2>
         <form id="registerForm">
             <label for="username">Nombre de usuario:</label>
@@ -8,11 +110,9 @@
             <input type="password" id="password" required>
             <button type="submit">Registrarse</button>
         </form>
-    </div>
-</section>
+    </section>
 
-<section id="login">
-    <div class="container">
+    <section id="login">
         <h2>Iniciar Sesión</h2>
         <form id="loginForm">
             <label for="loginUsername">Nombre de usuario:</label>
@@ -21,33 +121,41 @@
             <input type="password" id="loginPassword" required>
             <button type="submit">Iniciar sesión</button>
         </form>
-    </div>
-</section>
+    </section>
 
-<script>
-    // Registro de usuario
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        
-        // Guardar datos en localStorage (para fines de demostración)
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
-        alert('¡Registro exitoso!');
-    });
+    <footer>
+        <p>&copy; 2025 Buenos Aires Real Life RP | Todos los derechos reservados.</p>
+    </footer>
 
-    // Inicio de sesión
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const loginUsername = document.getElementById('loginUsername').value;
-        const loginPassword = document.getElementById('loginPassword').value;
+    <script>
+        // Registro de usuario
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Guardar datos en localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            alert('¡Registro exitoso! Ahora serás redirigido.');
 
-        // Verificar si los datos coinciden
-        if (loginUsername === localStorage.getItem('username') && loginPassword === localStorage.getItem('password')) {
-            alert('Inicio de sesión exitoso');
-        } else {
-            alert('Nombre de usuario o contraseña incorrectos');
-        }
-    });
-</script>
+            // Redireccionar a otra página después del registro
+            window.location.href = "pagina-destino.html";  // Reemplaza con la URL de la página de destino
+        });
+
+        // Inicio de sesión
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            // Verificar si los datos coinciden
+            if (loginUsername === localStorage.getItem('username') && loginPassword === localStorage.getItem('password')) {
+                alert('Inicio de sesión exitoso');
+            } else {
+                alert('Nombre de usuario o contraseña incorrectos');
+            }
+        });
+    </script>
+</body>
+</html>
